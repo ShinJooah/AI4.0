@@ -1,0 +1,26 @@
+from google.colab import drive
+drive.mount('/content/gdrive')
+from google.colab.patches import cv2_imshow
+import cv2
+
+img = cv2.imread('/content/gdrive/MyDrive/bird.jpg', cv2.IMREAD_COLOR)
+cv2_imshow(img)
+
+print(img.shape)
+img2 = cv2.imread('/content/gdrive/MyDrive/bird.jpg', cv2.IMREAD_GRAYSCALE)
+cv2_imshow(img2)
+print(img2.shape)
+
+
+img2 = cv2.resize(img,dsize=(0,0),fx=0.5,fy=0.5,interpolation=cv2.INTER_LINEAR)
+cv2_imshow(img2)
+
+
+cv2.line(img,(200,70),(4,4),(0,255,0),10)
+cv2_imshow(img)
+
+cv2.circle(img,(50,150),20,(0,0,255),-1)
+cv2_imshow(img)
+
+cv2.ellipse(img,(56,56),(100,50),45,0,360,(255,255,255),-1)
+cv2_imshow(img)
